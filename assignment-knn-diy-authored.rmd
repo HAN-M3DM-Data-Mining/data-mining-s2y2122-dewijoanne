@@ -155,5 +155,44 @@ Now that we have a set of predicted labels we can compare these with the actual 
 confusionMatrix(occupancy_test_pred, test_label[[1]], positive = NULL, dnn = c("Prediction", "True"))
 ```
 
+## Visualization
+
+```{r}
+library(ggplot2)
+ggplot(data = new_occupancy_data, mapping = aes(x = Temperature, y = Humidity))+
+  geom_point(mapping = aes(color = CO2))
+```
+
+```{r}
+ggplot(data = new_occupancy_data, mapping = aes(x = Temperature, y = Humidity))+
+  geom_smooth(mapping = aes(color = CO2))
+```
+
+```{r}
+ggplot(data = new_occupancy_data)+
+  geom_point(mapping = aes(x = CO2, y = Humidity),
+           position = "jitter"
+  )
+
+ggplot(data = new_occupancy_data, mapping = aes(x = CO2, y = Humidity))+
+  geom_point()+
+  geom_abline()+
+  coord_fixed()
+
+```
+
+```{r}
+bar <- ggplot(data = new_occupancy_data)+
+  geom_bar(
+    mapping = aes(x = CO2, fill = Humidity),
+    show.legend = FALSE,
+    width = 1
+  ) +
+  theme(aspect.ratio = 1)+
+  labs(x = NULL, y = NULL)
+
+bar + coord_flip()
+bar + coord_polar()
+```
 
 reviewer adds suggestions for improving the model
