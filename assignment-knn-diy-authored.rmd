@@ -81,7 +81,7 @@ summary(occupancy_data)
 
 ## Data Preparation
 
-The first variable, id, contains unique patient IDs. The IDs do not contain any relevant information for making predictions, so we will delete it from the dataset.
+The first variable, date, contains date. The dates do not contain any relevant information for making predictions, so we will delete it from the dataset.
 
 ```{r}
 new_occupancy_data <- occupancy_data[-1]
