@@ -101,7 +101,7 @@ propOccu
 The variable is now coded as a type character. Many models require that the label is of type factor. This is easily solved using the factor() function.
 
 ```{r}
-new_occupancy_data$Occupancy <- factor(new_occupancy_data$Occupancy, levels = c("1", "0"), labels = c("Occupied", "Not Occupied")) %>% relevel ("Occupied")
+new_occupancy_data$Occupancy <- factor(new_occupancy_data$Occupancy, levels = c("1", "0"), labels = c("Occupied", "Not Occupied")) %>% relevel ("Not Occupied")
 head(new_occupancy_data, 10)
 ```
 
@@ -115,7 +115,16 @@ The three variables have very different ranges, This could potentially cause pro
 ```{r}
 normalize <- function(x){return((x - min(x))/ (max(x) - min(x)))}
 
-nCols <- dim(new_occupancy_data)[6]
+testSet1 <- c(1:5)
+testSet2 <- c(1:5) * 10
+
+cat("testSet1:", testSet1, "\n")
+cat("testSet2:", testSet2, "\n")
+
+cat("Normalized testSet1:", normalize(testSet1), "\n")
+cat("Normalized testSet2:", normalize(testSet2))
+
+nCols <- dim(new_occupancy_data)[2]
 cleanDF_n <- sapply(1:5,
                     function(x) {
   normalize(new_occupancy_data[,x])
