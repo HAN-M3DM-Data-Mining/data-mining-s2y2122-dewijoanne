@@ -37,11 +37,6 @@ The accuracy of the prediction of occupancy in an office room using data from li
 
 
 
-```{r}
-
-```
-
-
 ## Data Understanding
 The data we will be using comes from the University of Wisconsin and is available online as an open source dataset https://archive.ics.uci.edu/ml/datasets/Occupancy+Detection+ (UCI Machine Learning Repository: Occupancy Detection Data Set). 
 
