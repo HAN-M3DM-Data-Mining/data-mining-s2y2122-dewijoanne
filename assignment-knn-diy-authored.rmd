@@ -199,4 +199,28 @@ bar + coord_flip()
 bar + coord_polar()
 ```
 
-reviewer adds suggestions for improving the model
+
+
+Notes:
+I have sabotaged in these lines:
+Line 19: added 'require (class)'
+Line 59: removed 'read_csv'
+Line 60: changed to 'View(occ)' from 'head(occupancy_data)'
+Line 82: changed to 'new_occupancy_data <- occupancy_data[1]' from 'new_occupancy_data <- occupancy_data[-1]'
+Line 89: typo 'countOccu <- table(new_occupancy_data$Occupanc)'
+Line 90: changed digit 1 to 0 'propOccu <- round(prop.table(countOccu) * 100, digits = 0)'
+Line 99: changed the relevel to numbers
+Line 113 - 120: deleted
+Line 122: 'dim(new_occupancy_data)[2]' changed to 'dim(new_occupancy_data)[6]'
+Line 142 - 143: 'train_label <- occ[1:6526, ]
+test_label <- new_occupancy_data[6527:8143, ]' changed from 'train_label <- occ[1:6526,6 ]
+test_label <- new_occupancy_data[6527:8143,6 ]'
+
+
+
+
+
+
+
+Sources:
+https://businessdatasolutions.github.io/courses/data%20mining/gitbook/book-output/knn.html#preparation
